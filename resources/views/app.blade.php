@@ -117,6 +117,39 @@
                     </ul>
                 </li>
                 @endpermission
+                @permission(['manage-gymie','manage-members','view-member'])
+                <li class="nav-dropdown {{ Utilities::setActiveMenu('website*',true) }}">
+                    <a href="#">
+                        <i class="fa fa-globe"></i> <span>Website</span>
+                    </a>
+                    <ul>
+                    @permission(['manage-gymie','manage-website','view-events'])
+                        <li class="{{ Utilities::setActiveMenu('website') }}"><a href="{{ action('WebsiteController@index') }}">View Events</a></li>
+                        @endpermission
+                        @permission(['manage-gymie','manage-website','add-events'])
+                        <li class="{{ Utilities::setActiveMenu('website/addEvent') }}"><a href="{{ action('WebsiteController@addEvent') }}">Add Events</a>
+                        </li>
+                        @endpermission
+                    </ul>
+                </li>
+                @endpermission
+
+                @permission(['manage-gymie','manage-programs','view-program'])
+                <li class="nav-dropdown {{ Utilities::setActiveMenu('program*',true) }}">
+                    <a href="#">
+                        <i class="fa fa-tasks"></i> <span>Programs</span>
+                    </a>
+                    <ul>
+                    @permission(['manage-gymie','manage-website','view-events'])
+                        <li class="{{ Utilities::setActiveMenu('program') }}"><a href="{{ action('ProgramController@programIndex') }}">View Programs</a></li>
+                        @endpermission
+                        @permission(['manage-gymie','manage-website','add-events'])
+                        <li class="{{ Utilities::setActiveMenu('program/createProgram') }}"><a href="{{ action('ProgramController@createProgram') }}">Add Program</a>
+                        </li>
+                        @endpermission
+                    </ul>
+                </li>
+                @endpermission
 
                 @permission(['manage-gymie','manage-payments','view-payment'])
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('payments*',true) }}">

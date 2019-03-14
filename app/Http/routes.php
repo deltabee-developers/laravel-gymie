@@ -81,6 +81,17 @@ Route::group(['prefix' => 'members', 'middleware' => ['auth']], function () {
     Route::get('{id}/transfer', ['middleware' => ['permission:manage-gymie|manage-enquiries|transfer-enquiry'], 'uses' => 'MembersController@transfer']);
 });
 
+//WebsiteController
+Route::group(['prefix' => 'website', 'middleware' => ['auth']], function () {
+    Route::get('/', ['middleware' => ['permission:manage-gymie|manage-website|view-events'], 'uses' => 'WebsiteController@index']);
+    Route::get('addEvents', ['middleware' => ['permission:manage-gymie|manage-website|add-events'], 'uses' => 'WebsiteController@addEvent']);
+    Route::post('/', ['middleware' => ['permission:manage-gymie|manage-website|add-events'], 'uses' => 'WebsiteController@storeEvents']);
+    Route::get('{id}/edit', ['middleware' => ['permission:manage-gymie|manage-website|edit-events'], 'uses' => 'WebsiteController@editEvents']);
+    Route::post('{id}/update', ['middleware' => ['permission:manage-gymie|manage-website|edit-events'], 'uses' => 'WebsiteController@update']);
+    Route::post('{id}/archive', ['middleware' => ['permission:manage-gymie|manage-website|delete-events'], 'uses' => 'WebsiteController@delete']);
+    
+});
+
 //SmsController
 Route::group(['prefix' => 'sms', 'middleware' => ['auth']], function () {
     Route::get('triggers', ['middleware' => ['permission:manage-gymie|manage-sms'], 'uses' => 'SmsController@triggersIndex']);
@@ -240,4 +251,12 @@ Route::group(['prefix' => 'user/permission', 'middleware' => ['auth', 'role:Gymi
     Route::get('{id}/edit', 'AclController@editPermission');
     Route::post('{id}/update', 'AclController@updatePermission');
     Route::post('{id}/delete', 'AclController@deletePermission');
+});
+Route::group(['prefix' => 'programs', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'ProgramController@programIndex');
+    Route::get('create', 'ProgramController@createProgram');
+    Route::post('/', 'ProgramController@storeProgram');
+    Route::get('{id}/edit', 'ProgramController@editProgram');
+    Route::post('{id}/update', 'ProgramController@updateProgram');
+    Route::post('{id}/delete', 'ProgramController@deleteProgram');
 });
