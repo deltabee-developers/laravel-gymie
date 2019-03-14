@@ -8,7 +8,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
 
-    <title>Gymie - Login</title>
+    <title>BodyProCoach - Login</title>
 
     <!-- BEGIN CORE FRAMEWORK -->
     <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
@@ -34,7 +34,7 @@
 <div class="wrapper animated fadeInDown">
     <div class="panel overflow-hidden">
         <div class="bg-grey-900 padding-40 no-margin-bottom font-size-20 color-white text-center text-uppercase">
-            <img src="{{ asset('assets/img/web/logo.png') }}">
+            <img src="{{ asset('assets/img/web/gymlogo1.png') }}">
         </div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -68,7 +68,7 @@
                 <button type="submit" class="btn btn-dark bg-light-green-500 padding-10 btn-block color-white"><i class="ion-log-in"></i> Sign in</button>
             </div>
         </form>
-        <div class="panel-footer padding-md no-margin no-border bg-grey-900 text-center color-white">&copy; 2016 Gymie by LUBUS</div>
+        <div class="panel-footer padding-md no-margin no-border bg-grey-900 text-center color-white">&copy; 2019 BodyProCoach</div>
     </div>
 </div>
 

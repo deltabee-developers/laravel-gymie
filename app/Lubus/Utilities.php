@@ -499,7 +499,7 @@ class Utilities
             $file = $request->file($upload_field);
 
             if ($file->isValid()) {
-                File::delete(public_path('assets/img/gym/gym_logo.jpg'));
+                File::delete(public_path('assets/img/gym/gym_logo1.jpg'));
                 $fileName = 'gym_logo.jpg';
                 $destinationPath = public_path($upload_path);
                 $request->file($upload_field)->move($destinationPath, $fileName);

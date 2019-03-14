@@ -8,7 +8,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
 
-    <title>Gymie</title>
+    <title>BodyProCoach</title>
 
     <!-- BEGIN CORE FRAMEWORK -->
     <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 <body class="fixed-leftside fixed-header">
 <!-- BEGIN HEADER -->
 <header class="hidden-print">
-    <span class="logo">Gymie</span>
+    <span class="logo">BodyProCoach</span>
     <nav class="navbar navbar-static-top">
         <a href="#" class="navbar-btn sidebar-toggle">
             <span class="icon-bar"></span>
@@ -160,9 +160,9 @@
                                 <li class="{{-- Utilities::setActiveMenu('reports/members/*') --}}"><a href="{{-- action('ReportsController@gymMemberCharts') --}}">Members</a></li>
                                 <li class="{{-- Utilities::setActiveMenu('reports/enquiries/*') --}}"><a href="{{-- action('ReportsController@enquiryCharts') --}}">Enquiries</a></li>
                                 <li class="{{-- Utilities::setActiveMenu('reports/subscriptions/*') --}}"><a href="{{-- action('ReportsController@subscriptionCharts') --}}">Subscriptions</a></li>
-                                <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>                            
-                                <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>                            
+                                <li class="{{-- Utilities::setActiveMenu('reports/payments/*') --}}"><a href="{{-- action('ReportsController@paymentCharts') --}}">Payments</a></li>
+                                <li class="{{-- Utilities::setActiveMenu('reports/expenses/*') --}}"><a href="{{-- action('ReportsController@expenseCharts') --}}">Expenses</a></li>
+                                <li class="{{-- Utilities::setActiveMenu('reports/invoices/*') --}}"><a href="{{-- action('ReportsController@invoiceCharts') --}}">Invoices</a></li>
                             </ul>
                         </li> -->
 
