@@ -38,6 +38,7 @@ class constPaths
     const UserProofPhoto = '/assets/img/proof';
     const StaffPhoto = '/assets/img/staff';
     const GymLogo = '/assets/img/gym';
+    const Programs = '/assets/img/programs';
 }
 
 class constFilePrefix
@@ -45,6 +46,7 @@ class constFilePrefix
     const UserProfilePhoto = 'profile_';
     const UserProofPhoto = 'proof_';
     const StaffPhoto = 'staff_';
+    const ProgramPhoto = 'program_';
 }
 
 // Payment status

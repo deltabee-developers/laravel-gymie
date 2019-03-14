@@ -31,13 +31,31 @@ class ProgramController extends Controller
 
     public function storeProgram(Request $request)
     {
-        Program::create(['name' => $request->name,
+       
+       $program= ['name' => $request->name,
+                            'program_icon'=> '',
                             'description' => $request->description,
-                            ]);
-
-        flash()->success('Program was successfully created');
-
-        return redirect('programs');
+    ];
+                            $program = new Program($program);
+                            $program->save();
+                            if ($program->id) {
+                                $program->program_icon= \constFilePrefix::ProgramPhoto.$program->id.'.jpg';
+                                $program->save();
+                                try{
+                                    \Utilities::uploadFile($request, \constFilePrefix::ProgramPhoto, $program->id, 'program_icon', \constPaths::Programs);
+                                }catch(\Exception $e){
+                                    print_r($e);die;
+                                }
+                                
+                                flash()->success('Program was successfully created');
+                    
+                                return redirect('programs');
+                            } else {
+                                flash()->error('Error while insertion');
+                    
+                                return redirect('programs');
+                            }
+        
     }
 
     public function editProgram($id)

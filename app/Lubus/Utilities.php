@@ -496,9 +496,11 @@ class Utilities
     public static function uploadFile(Request $request, $prefix, $recordId, $upload_field, $upload_path)
     {
         if ($request->hasFile($upload_field)) {
+           
             $file = $request->file($upload_field);
-
+           
             if ($file->isValid()) {
+                
                 File::delete(public_path('assets/img/gym/gym_logo1.jpg'));
                 $fileName = 'gym_logo.jpg';
                 $destinationPath = public_path($upload_path);
