@@ -9,6 +9,7 @@ use JavaScript;
 use App\Enquiry;
 use App\Invoice;
 use App\Service;
+use App\Feedback;
 use App\Setting;
 use Carbon\Carbon;
 use App\SmsTrigger;
@@ -335,6 +336,15 @@ class MembersController extends Controller
             return redirect(action('MembersController@index'));
         }
     }
+
+
+
+        public function viewFeedback($id){
+          $members_feedback = Feedback::join('mst_members', 'feedback.member_id', '=', 'mst_members.id')->join('trainer', 'trainer.id', '=', 'feedback.trainer_id')->select('mst_members.name as m_name', 'trainer.name','feedback.description')->get();
+          $count = count($members_feedback);
+          return view('members.feedback', compact('members_feedback', 'count'));
+        }
+
 
     //End of new Member
 

@@ -117,6 +117,25 @@
                     </ul>
                 </li>
                 @endpermission
+
+                @permission(['manage-gymie','manage-members','view-member'])
+                <li class="nav-dropdown {{ Utilities::setActiveMenu('members*',true) }}">
+                    <a href="#">
+                        <i class="ion-person-add"></i> <span>Trainer</span>
+                    </a>
+                    <ul>
+                        <li class="{{ Utilities::setActiveMenu('trainer/all') }}"><a href="{{ action('TrainerController@TrainerIndex') }}">All Trainers</a></li>
+                        @permission(['manage-gymie','manage-members','add-member'])
+                        <li class="{{ Utilities::setActiveMenu('trainer/create') }}"><a href="{{ action('TrainerController@create') }}">Add Trainer</a></li>
+                        @endpermission
+                        <!-- <li class="{{ Utilities::setActiveMenu('trainer/active') }}"><a href="{{ action('TrainerController@active') }}">Active Trainers</a></li>
+                        <li class="{{ Utilities::setActiveMenu('trainer/inactive') }}"><a href="{{ action('TrainerController@inactive') }}">Inactive Trainers</a> -->
+                        </li>
+                    </ul>
+                </li>
+                @endpermission
+
+
                 @permission(['manage-gymie','manage-members','view-member'])
                 <li class="nav-dropdown {{ Utilities::setActiveMenu('website*',true) }}">
                     <a href="#">

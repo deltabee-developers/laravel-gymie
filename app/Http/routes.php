@@ -79,6 +79,8 @@ Route::group(['prefix' => 'members', 'middleware' => ['auth']], function () {
     Route::post('{id}/update', ['middleware' => ['permission:manage-gymie|manage-members|edit-member'], 'uses' => 'MembersController@update']);
     Route::post('{id}/archive', ['middleware' => ['permission:manage-gymie|manage-members|delete-member'], 'uses' => 'MembersController@archive']);
     Route::get('{id}/transfer', ['middleware' => ['permission:manage-gymie|manage-enquiries|transfer-enquiry'], 'uses' => 'MembersController@transfer']);
+
+      Route::get('{id}/viewfeedback', ['middleware' => ['permission:manage-gymie|manage-members|edit-member'], 'uses' => 'MembersController@viewFeedback']);
 });
 
 //WebsiteController
@@ -89,7 +91,7 @@ Route::group(['prefix' => 'website', 'middleware' => ['auth']], function () {
     Route::get('{id}/edit', ['middleware' => ['permission:manage-gymie|manage-website|edit-events'], 'uses' => 'WebsiteController@editEvents']);
     Route::post('{id}/update', ['middleware' => ['permission:manage-gymie|manage-website|edit-events'], 'uses' => 'WebsiteController@update']);
     Route::post('{id}/archive', ['middleware' => ['permission:manage-gymie|manage-website|delete-events'], 'uses' => 'WebsiteController@delete']);
-    
+
 });
 
 //SmsController
@@ -252,6 +254,7 @@ Route::group(['prefix' => 'user/permission', 'middleware' => ['auth', 'role:Gymi
     Route::post('{id}/update', 'AclController@updatePermission');
     Route::post('{id}/delete', 'AclController@deletePermission');
 });
+//program
 Route::group(['prefix' => 'programs', 'middleware' => ['auth', 'role:Gymie']], function () {
     Route::get('/', 'ProgramController@programIndex');
     Route::get('create', 'ProgramController@createProgram');
@@ -259,4 +262,16 @@ Route::group(['prefix' => 'programs', 'middleware' => ['auth', 'role:Gymie']], f
     Route::get('{id}/edit', 'ProgramController@editProgram');
     Route::post('{id}/update', 'ProgramController@updateProgram');
     Route::post('{id}/delete', 'ProgramController@deleteProgram');
+});
+
+//Trainer
+Route::group(['prefix' => 'trainer', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'TrainerController@TrainerIndex');
+     Route::get('create', 'TrainerController@create');
+     Route::get('active', 'TrainerController@active');
+     Route::get('inactive', 'TrainerController@inactive');
+     Route::post('/', 'TrainerController@storeTrainer');
+    Route::get('{id}/edit', 'TrainerController@editProgram');
+     Route::post('{id}/update', 'TrainerController@updateProgram');
+    Route::post('{id}/delete', 'TrainerController@deleteTrainer');
 });

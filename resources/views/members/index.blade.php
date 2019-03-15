@@ -141,6 +141,11 @@
                                                                data-record-id="{{$member->id}}">Delete member</a>
                                                             @endpermission
                                                         </li>
+                                                        <li>
+                                                          @permission(['manage-gymie','manage-members','delete-member','add-feedback'])
+                                                          <a href="{{ action('MembersController@viewFeedback',['id' => $member->id]) }}">View Feedback</a>
+                                                          @endpermission
+                                                      </li>
                                                     </ul>
                                                 </div>
 
@@ -178,4 +183,4 @@
             gymie.deleterecord();
         });
     </script>
-@stop        
+@stop

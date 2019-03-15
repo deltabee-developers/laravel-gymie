@@ -8,12 +8,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the service</div>
+                            <div class="panel-head font-size-20">Enter details of the program</div>
                         </div>
 
-                        {!! Form::model($event, ['method' => 'POST','action' => ['WebsiteController@update',$event->id],'id'=>'eventsform']) !!}
+                        {!! Form::model($trainer, ['method' => 'POST','action' => ['TrainerController@updateProgram',$trainer->id],'id'=>'trainerform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Update'])
+                        @include('trainer.form',['submitButtonText' => 'Update'])
 
                         {!! Form::Close() !!}
 
@@ -23,6 +23,7 @@
                 </div>
             </div>
         </div>
+
         @stop
         @section('footer_scripts')
             <script src="{{ URL::asset('assets/js/service.js') }}" type="text/javascript"></script>
