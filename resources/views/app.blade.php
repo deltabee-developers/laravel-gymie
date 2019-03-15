@@ -308,7 +308,11 @@
                         <i class="fa fa-users"></i> <span>App Settings</span>
                     </a>
                     <ul>
-                        <li class="{{ Utilities::setActiveMenu('app_setting/questiontypes') }}"><a href="{{ action('QuestionTypeController@index') }}"><i class="fa fa-upload"></i> All
+                    <li class="{{ Utilities::setActiveMenu('app_setting/questiontypes') }}"><a href="{{ action('QuestionsController@index') }}"><i class="fa fa-upload"></i> All
+                                View Questions</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/questions/create') }}"><a href="{{ action('QuestionsController@create') }}"><i class="fa fa-list"></i>
+                                Add New Question</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/questions') }}"><a href="{{ action('QuestionTypeController@index') }}"><i class="fa fa-upload"></i> All
                                 View Questiontypes</a></li>
                         <li class="{{ Utilities::setActiveMenu('app_setting/questiontypes/create') }}"><a href="{{ action('QuestionTypeController@create') }}"><i class="fa fa-list"></i>
                                 Add New Questiontype</a></li>

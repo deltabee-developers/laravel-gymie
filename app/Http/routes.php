@@ -260,6 +260,14 @@ Route::group(['prefix' => 'programs', 'middleware' => ['auth', 'role:Gymie']], f
     Route::post('{id}/update', 'ProgramController@updateProgram');
     Route::post('{id}/delete', 'ProgramController@deleteProgram');
 });
+Route::group(['prefix' => 'app_setting/questions', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'QuestionsController@index');
+    Route::get('create', 'QuestionsController@create');
+    Route::post('/', 'QuestionsController@store');
+    Route::get('{id}/edit', 'QuestionsController@edit');
+    Route::post('{id}/update', 'QuestionsController@update');
+    Route::post('{id}/delete', 'QuestionsController@delete');
+});
 Route::group(['prefix' => 'app_setting/questiontypes', 'middleware' => ['auth', 'role:Gymie']], function () {
     Route::get('/', 'QuestionTypeController@index');
     Route::get('create', 'QuestionTypeController@create');
