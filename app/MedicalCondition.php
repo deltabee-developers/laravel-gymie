@@ -5,18 +5,17 @@ namespace App;
 use Sofa\Eloquence\Eloquence;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+class MedicalCondition extends Model
 {
     //Eloquence Search mapping
     use Eloquence;
     use createdByUser, updatedByUser;
 
-    protected $table = 'mst_programs';
+    protected $table = 'mst_medical_conditions';
 
     protected $fillable = [
         'name',
         'description',
-        'program_icon',
         'created_by',
         'updated_by',
     ];

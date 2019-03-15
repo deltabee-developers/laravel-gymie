@@ -6,17 +6,17 @@
         <!-- BEGIN PAGE HEADING -->
         <div class="page-head bg-grey-100 padding-top-15 no-padding-bottom">
             @include('flash::message')
-            <h1 class="page-title no-line-height">Events
-                @permission(['manage-gymie','manage-events','add-events'])
-                <a href="{{ action('WebsiteController@addEvent') }}" class="page-head-btn btn-sm btn-primary active" role="button">Add New</a>
-                <small>Details of all gym events</small>
+            <h1 class="page-title no-line-height">Questions
+                @permission(['manage-gymie'])
+                <a href="{{ action('QuestionsController@create') }}" class="page-head-btn btn-sm btn-primary active" role="button">Add New</a>
+                <small>Details of all gym Questions</small>
             </h1>
             @permission(['manage-gymie','pagehead-stats'])
             <h1 class="font-size-30 text-right color-blue-grey-600 animated fadeInDown total-count pull-right"><span data-toggle="counter" data-start="0"
                                                                                                                      data-from="0" data-to="{{ $count }}"
                                                                                                                      data-speed="600"
                                                                                                                      data-refresh-interval="10"></span>
-                <small class="color-blue-grey-600 display-block margin-top-5 font-size-14">Total Events</small>
+                <small class="color-blue-grey-600 display-block margin-top-5 font-size-14">Total Questions</small>
             </h1>
             @endpermission
             @endpermission
@@ -42,23 +42,23 @@
                                 </div>
                             </div>
 
-                            @if($events->count() == 0)
+                            @if($questions->count() == 0)
                                 <h4 class="text-center padding-top-15">Sorry! No records found</h4>
                             @else
 
-                                <table id="events" class="table table-bordered table-striped">
+                                <table id="services" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th class="text-center">Event Name</th>
-                                        <th class="text-center">Event Description</th>
+                                        <th class="text-center">Question ID</th>
+                                        <th class="text-center">Question Name</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($events as $event)
+                                    @foreach ($questions as $question)
                                         <tr>
-                                            <td class="text-center">{{ $event->name}}</td>
-                                            <td class="text-center">{{ $event->description}}</td>
+                                            <td class="text-center">{{ $question->id}}</td>
+                                            <td class="text-center">{{ $question->name}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-info">Actions</button>
@@ -67,21 +67,20 @@
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        @permission(['manage-gymie','manage-events','edit-events'])
+                                                        @permission(['manage-gymie'])
                                                         <li>
-                                                            <a href="{{ action('WebsiteController@editEvents',['id' => $event->id]) }}">
+                                                            <a href="{{ action('QuestionsController@edit',['id' => $question->id]) }}">
                                                                 Edit details
                                                             </a>
                                                         </li>
                                                         @endpermission
-                                                        
-                                                        @permission(['manage-gymie','manage-events','delete-events'])
+                                                        @permission(['manage-gymie'])
                                                         <li>
                                                             <a href="#"
                                                                class="delete-record"
-                                                               data-delete-url="{{ url('website/'.$event->id.'/archive') }}"
-                                                               data-record-id="{{$event->id}}">
-                                                                Delete Event
+                                                               data-delete-url="{{ url('app_setting/questions/'.$question->id.'/delete') }}"
+                                                               data-record-id="{{$question->id}}">
+                                                                Delete Question
                                                             </a>
                                                         </li>
                                                         @endpermission
@@ -98,13 +97,13 @@
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <div class="gymie_paging_info">
-                                            Showing page {{ $events->currentPage() }} of {{ $events->lastPage() }}
+                                            Showing page {{ $questions->currentPage() }} of {{ $questions->lastPage() }}
                                         </div>
                                     </div>
 
                                     <div class="col-xs-6">
                                         <div class="gymie_paging pull-right">
-                                            {!! str_replace('/?', '?', $events->appends(Input::Only('search'))->render()) !!}
+                                            {!! str_replace('/?', '?', $questions->appends(Input::Only('search'))->render()) !!}
                                         </div>
                                     </div>
                                 </div>
