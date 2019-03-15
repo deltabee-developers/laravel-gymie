@@ -8,12 +8,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the service</div>
+                            <div class="panel-head font-size-20">Enter details of the Goal</div>
                         </div>
 
-                        {!! Form::model($event, ['method' => 'POST','action' => ['WebsiteController@update',$event->id],'id'=>'eventsform']) !!}
+                        {!! Form::model($goal, ['method' => 'POST','action' => ['GoalsController@update',$goal->id],'id'=>'Goalsform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Update'])
+                        @include('goals.form',['submitButtonText' => 'Update'])
 
                         {!! Form::Close() !!}
 

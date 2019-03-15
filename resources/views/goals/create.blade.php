@@ -22,12 +22,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the events</div>
+                            <div class="panel-head font-size-20">Enter details of the goals</div>
                         </div>
 
-                        {!! Form::Open(['url' => 'website/','id'=>'eventsform']) !!}
+                        {!! Form::Open(['url' => 'app_setting/goals','id'=>'Goalsform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Add'])
+                        @include('goals.form',['submitButtonText' => 'Add'])
 
                         {!! Form::Close() !!}
 

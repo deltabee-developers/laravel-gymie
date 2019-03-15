@@ -8,12 +8,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the service</div>
+                            <div class="panel-head font-size-20">Enter details of the medical condition</div>
                         </div>
 
-                        {!! Form::model($event, ['method' => 'POST','action' => ['WebsiteController@update',$event->id],'id'=>'eventsform']) !!}
+                        {!! Form::model($condition, ['method' => 'POST','action' => ['MedicalConditionsController@update',$condition->id],'id'=>'medicalsform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Update'])
+                        @include('medical_conditions.form',['submitButtonText' => 'Update'])
 
                         {!! Form::Close() !!}
 

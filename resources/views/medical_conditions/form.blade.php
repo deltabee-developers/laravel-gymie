@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('name','Event Name') !!}
+                {!! Form::label('name','Medical Condition Name') !!}
                 {!! Form::text('name',null,['class'=>'form-control', 'id' => 'name']) !!}
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('description','Event Description') !!}
+                {!! Form::label('description','Medical Condition Description') !!}
                 {!! Form::text('description',null,['class'=>'form-control', 'id' => 'description']) !!}
             </div>
         </div>

@@ -8,12 +8,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the service</div>
+                            <div class="panel-head font-size-20">Enter details of the Questiontype</div>
                         </div>
 
-                        {!! Form::model($event, ['method' => 'POST','action' => ['WebsiteController@update',$event->id],'id'=>'eventsform']) !!}
+                        {!! Form::model($questiontype, ['method' => 'POST','action' => ['QuestionTypeController@update',$questiontype->id],'id'=>'questiontypeform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Update'])
+                        @include('questiontypes.form',['submitButtonText' => 'Update'])
 
                         {!! Form::Close() !!}
 

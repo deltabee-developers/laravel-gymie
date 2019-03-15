@@ -302,6 +302,28 @@
                     </a>
                 </li>
                 @endpermission
+                @permission(['manage-gymie','manage-users'])
+                <li class="nav-dropdown {{ Utilities::setActiveMenu('app_setting*',true) }}">
+                    <a href="#">
+                        <i class="fa fa-users"></i> <span>App Settings</span>
+                    </a>
+                    <ul>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/questiontypes') }}"><a href="{{ action('QuestionTypeController@index') }}"><i class="fa fa-upload"></i> All
+                                View Questiontypes</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/questiontypes/create') }}"><a href="{{ action('QuestionTypeController@create') }}"><i class="fa fa-list"></i>
+                                Add New Questiontype</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/goals') }}"><a href="{{ action('GoalsController@index') }}"><i class="fa fa-upload"></i> All
+                                View Goals</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/goals/create') }}"><a href="{{ action('GoalsController@create') }}"><i class="fa fa-list"></i>
+                                Add New Goal</a></li> 
+                        <li class="{{ Utilities::setActiveMenu('app_setting/medical_conditions') }}"><a href="{{ action('MedicalConditionsController@index') }}"><i class="fa fa-upload"></i> All
+                                View Medical Condition</a></li>
+                        <li class="{{ Utilities::setActiveMenu('app_setting/medical_conditions/create') }}"><a href="{{ action('MedicalConditionsController@create') }}"><i class="fa fa-list"></i>
+                                Add New Medical Condition</a></li>                
+                        
+                    </ul>
+                </li>
+                @endpermission
 
                 <!-- Dummy Spacer -->
                 <li>

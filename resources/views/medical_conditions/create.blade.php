@@ -22,12 +22,12 @@
                 <div class="col-md-12">
                     <div class="panel no-border">
                         <div class="panel-title">
-                            <div class="panel-head font-size-20">Enter details of the events</div>
+                            <div class="panel-head font-size-20">Enter details of the medical condition</div>
                         </div>
 
-                        {!! Form::Open(['url' => 'website/','id'=>'eventsform']) !!}
+                        {!! Form::Open(['url' => 'app_setting/medical_conditions','id'=>'medicalform']) !!}
 
-                        @include('website.form',['submitButtonText' => 'Add'])
+                        @include('medical_conditions.form',['submitButtonText' => 'Add'])
 
                         {!! Form::Close() !!}
 

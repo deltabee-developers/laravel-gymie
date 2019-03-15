@@ -260,3 +260,27 @@ Route::group(['prefix' => 'programs', 'middleware' => ['auth', 'role:Gymie']], f
     Route::post('{id}/update', 'ProgramController@updateProgram');
     Route::post('{id}/delete', 'ProgramController@deleteProgram');
 });
+Route::group(['prefix' => 'app_setting/questiontypes', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'QuestionTypeController@index');
+    Route::get('create', 'QuestionTypeController@create');
+    Route::post('/', 'QuestionTypeController@store');
+    Route::get('{id}/edit', 'QuestionTypeController@edit');
+    Route::post('{id}/update', 'QuestionTypeController@update');
+    Route::post('{id}/delete', 'QuestionTypeController@delete');
+});
+Route::group(['prefix' => 'app_setting/goals', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'GoalsController@index');
+    Route::get('create', 'GoalsController@create');
+    Route::post('/', 'GoalsController@store');
+    Route::get('{id}/edit', 'GoalsController@edit');
+    Route::post('{id}/update', 'GoalsController@update');
+    Route::post('{id}/delete', 'GoalsController@delete');
+});
+Route::group(['prefix' => 'app_setting/medical_conditions', 'middleware' => ['auth', 'role:Gymie']], function () {
+    Route::get('/', 'MedicalConditionsController@index');
+    Route::get('create', 'MedicalConditionsController@create');
+    Route::post('/', 'MedicalConditionsController@store');
+    Route::get('{id}/edit', 'MedicalConditionsController@edit');
+    Route::post('{id}/update', 'MedicalConditionsController@update');
+    Route::post('{id}/delete', 'MedicalConditionsController@delete');
+});
